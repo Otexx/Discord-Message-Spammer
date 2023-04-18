@@ -4,6 +4,9 @@ import random
 import threading
 import json
 
+with open("tokens.txt", "r") as f:
+    tokens = [token.strip() for token in f.readlines()]
+
 with open("config.json", "r") as f:
     config = json.load(f)
 
@@ -11,9 +14,6 @@ channel_id = config["channel_id"]
 message = config["message"]
 delay = config["delay"]
 threads = config.get("threads", len(tokens))
-
-with open("tokens.txt", "r") as f:
-    tokens = [token.strip() for token in f.readlines()]
 
 def send_message(token):
     while True:
@@ -39,12 +39,12 @@ def send_message(token):
 
         time.sleep(delay)
 
-threads = []
+threads_list = []
 for i in range(threads):
     token = tokens[i % len(tokens)]
     thread = threading.Thread(target=send_message, args=(token,))
     thread.start()
-    threads.append(thread)
+    threads_list.append(thread)
 
-for thread in threads:
+for thread in threads_list:
     thread.join()
