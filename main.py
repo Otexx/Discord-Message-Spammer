@@ -10,6 +10,7 @@ with open("config.json", "r") as f:
 channel_id = config["channel_id"]
 message = config["message"]
 delay = config["delay"]
+threads = config.get("threads", len(tokens))
 
 with open("tokens.txt", "r") as f:
     tokens = [token.strip() for token in f.readlines()]
@@ -39,7 +40,8 @@ def send_message(token):
         time.sleep(delay)
 
 threads = []
-for token in tokens:
+for i in range(threads):
+    token = tokens[i % len(tokens)]
     thread = threading.Thread(target=send_message, args=(token,))
     thread.start()
     threads.append(thread)
