@@ -1,4 +1,18 @@
-Use as many threads as the number of tokens you have. For example, if you have 50 tokens, choose a number of threads between 1 and 50 as your threads
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Requirement is "pip install requests"
-its shit but works great
+# Discord Token Spammer
+
+<p align="center">
+  <img src="https://img.shields.io/badge/language-Python-blue.svg">
+</p>
+
+1. Download this repository.
+2. Add your Discord tokens to the `tokens.txt` file, one token per line.
+3. Add the following JSON object to the `config.json` file, replacing `CHANNEL_ID` and `YOUR_MESSAGE_HERE` with your desired values:
+
+   ```json
+   {
+       "channel_id": "CHANNEL_ID",
+       "message": "YOUR_MESSAGE_HERE",
+       "delay": 5,
+       "threads": 4
+   }
+    ```
