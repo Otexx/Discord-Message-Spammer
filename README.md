@@ -6,7 +6,7 @@
 
 1. Download this repository.
 2. Add your Discord tokens to the `tokens.txt` file, one token per line.
-3. Add the following JSON object to the `config.json` file, replacing `CHANNEL_ID` and `YOUR_MESSAGE_HERE` with your desired values:
+3. Add the following JSON object to the `config.json` file, replacing `CHANNEL_ID` and `YOUR_MESSAGE_HERE`
 
    ```json
    {
